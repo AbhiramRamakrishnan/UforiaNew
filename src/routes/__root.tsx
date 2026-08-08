@@ -42,13 +42,13 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-8xl font-bold text-gradient">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Lost in the void</h2>
+        <h2 className="mt-4 text-xl font-semibold">Lost in the Rhythm</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for has drifted out of frame.
+          The stage you are looking for has been moved or doesn't exist.
         </p>
         <div className="mt-6">
           <Link to="/" className="inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.02]">
-            Return home
+            Return Home
           </Link>
         </div>
       </div>
@@ -62,11 +62,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong. Try again or head home.</p>
+        <h1 className="text-xl font-semibold">Technical Interruption</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Something went wrong while loading this page. Please try again.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background">Try again</button>
-          <a href="/" className="rounded-full border border-border px-5 py-2.5 text-sm font-medium">Go home</a>
+          <button onClick={() => { router.invalidate(); reset(); }} className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background">Try Again</button>
+          <a href="/" className="rounded-full border border-border px-5 py-2.5 text-sm font-medium">Return Home</a>
         </div>
       </div>
     </div>
@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { title: "Uforia | Music & Cultural Festival by Fynora Entertainments" },
       { name: "description", content: BRAND_DESCRIPTION },
-      { name: "keywords", content: "Fynora Entertainments, live entertainment, cultural events, campus festivals, music festivals, cinematic releases, event management, Kerala, India" },
+      { name: "keywords", content: "Uforia, Uforia Festival, Uforia 2025, Fynora Entertainments, live music festival, concert, cultural festival, Kerala events, campus music festival" },
       { name: "author", content: "Fynora Entertainments" },
       { name: "application-name", content: BRAND_NAME },
       { name: "theme-color", content: "#12081a" },
       { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" },
-      { property: "og:title", content: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { property: "og:title", content: "Uforia | Music & Cultural Festival by Fynora Entertainments" },
       { property: "og:description", content: BRAND_DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: BRAND_NAME },
@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { name: "twitter:title", content: "Uforia | Music & Cultural Festival by Fynora Entertainments" },
       { name: "twitter:description", content: BRAND_DESCRIPTION },
       { name: "twitter:image", content: siteUrl("/full_logo_bgremoved.png") },
     ],
