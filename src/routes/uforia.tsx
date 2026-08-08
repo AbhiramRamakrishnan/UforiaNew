@@ -18,17 +18,17 @@ const galleryImages = Object.entries(galleryAssets)
 export const Route = createFileRoute("/uforia")({
   head: () => ({
     meta: [
-        { title: "Uforia '25 | Fynora Entertainments Flagship Event" },
-        { name: "description", content: "Uforia '25 is the flagship open-air spectacle by Fynora Entertainments at LuLu Mall, Thiruvananthapuram." },
-        { property: "og:title", content: "Uforia '25 | Fynora Entertainments Flagship Event" },
-        { property: "og:description", content: BRAND_DESCRIPTION },
-        { property: "og:url", content: siteUrl("/uforia") },
-        { property: "og:image", content: siteUrl("/uforia/img2.jpg") },
-        { name: "twitter:title", content: "Uforia '25 | Fynora Entertainments Flagship Event" },
-        { name: "twitter:description", content: BRAND_DESCRIPTION },
-        { name: "twitter:image", content: siteUrl("/uforia/img2.jpg") },
+      { title: "Uforia '25 | Premier Music & Cultural Festival" },
+      { name: "description", content: "Experience Uforia '25, Kerala's premier open-air music and cultural spectacle staged at LuLu Mall, Thiruvananthapuram." },
+      { property: "og:title", content: "Uforia '25 | Premier Music & Cultural Festival" },
+      { property: "og:description", content: BRAND_DESCRIPTION },
+      { property: "og:url", content: siteUrl("/uforia") },
+      { property: "og:image", content: siteUrl("/uforia/img2.jpg") },
+      { name: "twitter:title", content: "Uforia '25 | Premier Music & Cultural Festival" },
+      { name: "twitter:description", content: BRAND_DESCRIPTION },
+      { name: "twitter:image", content: siteUrl("/uforia/img2.jpg") },
     ],
-      links: [{ rel: "canonical", href: siteUrl("/uforia") }],
+    links: [{ rel: "canonical", href: siteUrl("/uforia") }],
   }),
   component: UforiaPage,
 });
@@ -62,9 +62,9 @@ function UforiaPage() {
   return (
     <>
       <PageHero
-        eyebrow="Flagship · December '25"
+        eyebrow="Produced by Fynora Entertainments · December '25"
         title={<>Uforia <span className="text-gradient">'25</span></>}
-        subtitle={<>An open-air renaissance staged at <strong className="text-foreground">LuLu Mall, Thiruvananthapuram</strong> — tens of thousands gathered for a single night of sound, scale, and spectacle.</>}
+        subtitle={<>An open-air music renaissance staged at <strong className="text-foreground">LuLu Mall, Thiruvananthapuram</strong> — tens of thousands gathered for an unforgettable experience of sound, scale, and atmosphere.</>}
       />
 
       {/* Meta strip */}
@@ -90,9 +90,9 @@ function UforiaPage() {
             uforiaofficial.com
           </MagneticAnchor>
           <MagneticAnchor href="https://in.bookmyshow.com/events/uforia/ET00468281?webview=true" target="_blank" rel="noreferrer" variant="outline" withArrow>
-            Book now
+            Book passes
           </MagneticAnchor>
-          <span className="text-sm text-muted-foreground">Official event website · lineup, gallery & tickets</span>
+          <span className="text-sm text-muted-foreground">Official festival portal · lineup, gallery & tickets</span>
         </Reveal>
       </Section>
 
@@ -100,8 +100,8 @@ function UforiaPage() {
       <Section>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
-            <Eyebrow>The lineup</Eyebrow>
-            <h2 className="mt-4 text-5xl font-bold md:text-6xl">Voices that shaped the night.</h2>
+            <Eyebrow>The Lineup</Eyebrow>
+            <h2 className="mt-4 text-5xl font-bold md:text-6xl">Headliners that redefine the stage.</h2>
           </Reveal>
         </div>
         <StaggerGroup className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
@@ -123,14 +123,14 @@ function UforiaPage() {
       {/* Gallery */}
       <Section>
         <Reveal>
-          <Eyebrow>Recap</Eyebrow>
-          <h2 className="mt-4 text-5xl font-bold md:text-6xl">A city, in <span className="text-gradient">frames.</span></h2>
+          <Eyebrow>Festival Memories</Eyebrow>
+          <h2 className="mt-4 text-5xl font-bold md:text-6xl">The experience in <span className="text-gradient">frames.</span></h2>
         </Reveal>
         <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           {featuredGallery.map((g, i) => (
             <StaggerItem key={i} className={g.span}>
               <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative h-full w-full overflow-hidden rounded-xl border-hairline">
-                <img src={g.src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-110" />
+                <img src={g.src} alt="Uforia festival crowd and performance frame" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-110" />
               </motion.div>
             </StaggerItem>
           ))}
@@ -142,7 +142,7 @@ function UforiaPage() {
             onClick={() => setShowAllGallery((current) => !current)}
             className="group inline-flex items-center gap-2 rounded-full border border-border bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-[0_12px_40px_-16px_rgba(255,255,255,0.55)] transition-all duration-300 hover:scale-[1.02] hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            {showAllGallery ? "Show less" : "View more"}
+            {showAllGallery ? "Show less" : "View full gallery"}
             <span className="ml-1 inline-block text-base leading-none transition-transform duration-300 group-hover:-translate-y-px">+</span>
           </button>
         </div>
@@ -152,7 +152,7 @@ function UforiaPage() {
             {remainingGallery.map((g) => (
               <StaggerItem key={g.path} className="aspect-square">
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative h-full w-full overflow-hidden rounded-xl border-hairline">
-                  <img src={g.src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-110" />
+                  <img src={g.src} alt="Uforia festival highlight" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-110" />
                 </motion.div>
               </StaggerItem>
             ))}
