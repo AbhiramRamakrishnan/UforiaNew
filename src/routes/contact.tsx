@@ -7,7 +7,7 @@ import { WhatsAppIcon } from "../components/social-icons";
 import { toast } from "sonner";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
-const whatsappHref = `https://wa.me/919656735696?text=${encodeURIComponent("Hi Fynora , i would like to know more about your services.")}`;
+const whatsappHref = `https://wa.me/919656735696?text=${encodeURIComponent("Hi Uforia Team, I would like to know more about festival tickets and partnerships.")}`;
 const facebookHref = "https://www.facebook.com/FynoraEntertainments";
 const instagramHref = "https://www.instagram.com/fynora_entertainments/";
 const youtubeHref = "https://www.youtube.com/@FynoraEntertainments";
@@ -23,15 +23,15 @@ const googleFormEntries = {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Fynora Entertainments | Bookings, Partnerships & Press" },
-      { name: "description", content: "Contact Fynora Entertainments for bookings, partnerships, press inquiries, live events, cultural curation, and cinematic collaborations." },
-      { property: "og:title", content: "Contact Fynora Entertainments | Bookings, Partnerships & Press" },
+      { title: "Contact Uforia | Festival Inquiries, Sponsorships & Bookings" },
+      { name: "description", content: "Get in touch with the Uforia team for festival inquiries, artist bookings, corporate sponsorships, and brand partnerships." },
+      { property: "og:title", content: "Contact Uforia | Festival Inquiries, Sponsorships & Bookings" },
       { property: "og:description", content: BRAND_DESCRIPTION },
       { property: "og:url", content: siteUrl("/contact") },
       { property: "og:image", content: siteUrl("/full_logo_bgremoved.png") },
-      { name: "twitter:title", content: "Contact Fynora Entertainments | Bookings, Partnerships & Press" },
+      { name: "twitter:title", content: "Contact Uforia | Festival Inquiries, Sponsorships & Bookings" },
       { name: "twitter:description", content: BRAND_DESCRIPTION },
-      { name: "twitter:image", content: siteUrl("/full_logo_bgremoved.png") },
+      { name: "twitter:image", content: siteUrl("/full_logo_bgresolved.png") },
     ],
     links: [{ rel: "canonical", href: siteUrl("/contact") }],
   }),
@@ -46,7 +46,7 @@ function Field({ label, type = "text", name, required = false, textarea = false 
         ? "you@example.com"
         : name === "mobile"
           ? "+91 96567 35696"
-            : "Tell us what you’re planning";
+          : "Tell us about your event, partnership, or inquiry";
 
   return (
     <label className="group block">
@@ -78,9 +78,9 @@ function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
-        title={<>Start a <span className="text-gradient">conversation.</span></>}
-        subtitle="Bookings, partnerships, enquiries, or just an idea worth staging — write to us. A producer responds within two working days."
+        eyebrow="Get in Touch"
+        title={<>Connect with <span className="text-gradient">Uforia.</span></>}
+        subtitle="Sponsorships, artist bookings, general festival inquiries, or collaboration proposals — send us a message and our production team will get back to you."
       />
 
       <Section className="pt-12!">
@@ -88,15 +88,15 @@ function ContactPage() {
           {/* Info */}
           <Reveal className="space-y-12">
             <div>
-              <Eyebrow>Studio</Eyebrow>
+              <Eyebrow>Festival HQ</Eyebrow>
               <div className="mt-5 space-y-1">
                 <p className="flex items-center gap-3 text-lg"><MapPin className="h-4 w-4 text-muted-foreground" /> Charummoodu, Nandhana Garden, Ayiroopara, Thiruvananthapuram, Kerala 695584</p>
-                <p className="pl-7 text-sm text-muted-foreground">India · International</p>
+                <p className="pl-7 text-sm text-muted-foreground">Kerala · India</p>
               </div>
             </div>
 
             <div>
-              <Eyebrow>Direct</Eyebrow>
+              <Eyebrow>Direct Contact</Eyebrow>
               <div className="mt-5 space-y-3">
                 <a href="mailto:fynoraevent@gmail.com" className="flex items-center gap-3 text-lg hover:text-foreground/80"><Mail className="h-4 w-4 text-muted-foreground" /> fynoraevent@gmail.com</a>
                 <a href="tel:+919656735696" className="flex items-center gap-3 text-lg hover:text-foreground/80"><Phone className="h-4 w-4 text-muted-foreground" /> +91 96567 35696</a>
@@ -104,7 +104,7 @@ function ContactPage() {
             </div>
 
             <div>
-              <Eyebrow>Follow</Eyebrow>
+              <Eyebrow>Follow Uforia</Eyebrow>
               <div className="mt-5 flex gap-3">
                 <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Instagram" className="rounded-full border border-border p-3 transition-all hover:border-foreground hover:bg-foreground/5"><Instagram className="h-4 w-4" /></a>
                 <a href={youtubeHref} target="_blank" rel="noreferrer" aria-label="YouTube" className="rounded-full border border-border p-3 transition-all hover:border-foreground hover:bg-foreground/5"><Youtube className="h-4 w-4" /></a>
@@ -134,7 +134,7 @@ function ContactPage() {
                   body,
                 });
 
-                toast.success("Submitted and will connect soon");
+                toast.success("Inquiry submitted! Our team will get back to you soon.");
                 setSent(true);
                 setTimeout(() => setSent(false), 4000);
                 e.currentTarget.reset();
