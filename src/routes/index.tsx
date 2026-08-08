@@ -9,14 +9,14 @@ import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { title: "Uforia Festival | Live Music, Culture & Unforgettable Stage Spectacles" },
       { name: "description", content: BRAND_DESCRIPTION },
-      { name: "keywords", content: "live entertainment, event management, cultural festivals, campus events, music festivals, cinematic releases, Kerala, India" },
-      { property: "og:title", content: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { name: "keywords", content: "Uforia festival, live entertainment, cultural festivals, campus music fests, concert productions, Kerala, India" },
+      { property: "og:title", content: "Uforia Festival | Live Music, Culture & Unforgettable Stage Spectacles" },
       { property: "og:description", content: BRAND_DESCRIPTION },
       { property: "og:url", content: siteUrl("/") },
       { property: "og:image", content: siteUrl("/full_logo_bgremoved.png") },
-      { name: "twitter:title", content: "Fynora Entertainments | Live Events, Festivals & Cinematic Productions" },
+      { name: "twitter:title", content: "Uforia Festival | Live Music, Culture & Unforgettable Stage Spectacles" },
       { name: "twitter:description", content: BRAND_DESCRIPTION },
       { name: "twitter:image", content: siteUrl("/full_logo_bgremoved.png") },
     ],
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const marquee = ["Uforia '25", "Concert Productions", "Live Performances", "Cinematic Releases", "Festival Experiences", "Music Videos", "Campus Spectacles"];
+const marquee = ["Uforia '25", "Concert Productions", "Live Performances", "Stage Spectacles", "Festival Experiences", "Music & Culture", "Kerala's Premier Fest"];
 const heroVideoSrc = "/hero_bg_video.mp4";
 
 function HeroBackground() {
@@ -111,24 +111,23 @@ function Home() {
           <HeroBackground />
         </motion.div>
 
-
         <motion.div style={{ opacity }} className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 py-14 md:justify-end md:py-0 md:pb-28">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-            <Eyebrow>Est. 2025 · India · International</Eyebrow>
+            <Eyebrow>Produced by Fynora Entertainments · Kerala</Eyebrow>
           </motion.div>
 
           <h1 className="mt-10 inline-flex items-center gap-3 text-[9.5vw] font-bold leading-none tracking-tight md:mt-6 md:gap-4 md:text-[5.8rem] lg:gap-5 lg:text-[7rem]">
             <motion.img
               src="/logo_icon_bgremoved.png"
-              alt="Fynora"
+              alt="Uforia"
               initial={{ opacity: 0, y: 24, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.22, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="h-[2em] w-auto shrink-0 object-contain md:h-[2.1em] lg:h-[2.15em]"
             />
-              <span className="flex flex-col items-start gap-2 md:gap-2.5">
+            <span className="flex flex-col items-start gap-2 md:gap-2.5">
               <span className="leading-[0.9]">
-                {"Fynora".split("").map((ch, i) => (
+                {"Uforia".split("").map((ch, i) => (
                   <motion.span
                     key={i}
                     initial={{ opacity: 0, y: 80 }}
@@ -146,7 +145,7 @@ function Home() {
                 transition={{ delay: 0.7, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 className="block text-[0.74em] leading-none text-gradient md:text-[0.75em]"
               >
-                Entertainments
+                Festival '25
               </motion.span>
             </span>
           </h1>
@@ -167,7 +166,7 @@ function Home() {
             className="mt-12 flex flex-wrap gap-3 md:mt-10"
           >
             <MagneticLink to="/uforia" variant="primary" withArrow>
-              Explore the experience
+              Explore Uforia '25
             </MagneticLink>
             <MagneticLink to="/services" variant="outline">
               What we do
@@ -212,7 +211,6 @@ function Home() {
         </motion.div>
       </div>
 
-
       {/* Pillars */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
@@ -224,9 +222,9 @@ function Home() {
           </Reveal>
           <StaggerGroup className="grid gap-px overflow-hidden rounded-2xl border-hairline bg-border/40 md:grid-cols-3">
             {[
-              { icon: Mic2, title: "Live spectacle", body: "Stadium-grade musical productions and international band tours engineered end-to-end." },
-              { icon: Globe2, title: "Cultural craft", body: "Curated cultural festivals and arts experiences that move with intention." },
-              { icon: Film, title: "Cinematic IP", body: "Short films and music videos produced with a director's eye and a label's reach." },
+              { icon: Mic2, title: "Live spectacle", body: "Arena-grade musical performances and headliner lineups engineered for maximal impact." },
+              { icon: Globe2, title: "Cultural craft", body: "Curated festival grounds and sensory experiences that connect artists with true fans." },
+              { icon: Sparkles, title: "Immersive Staging", body: "Custom stage architecture, high-impact visuals, and production quality set to global standards." },
             ].map(({ icon: Icon, title, body }) => (
               <StaggerItem key={title} className="group relative bg-background p-8 transition-colors hover:bg-surface md:p-10">
                 <Icon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-foreground" />
@@ -241,7 +239,7 @@ function Home() {
       {/* Featured: Uforia */}
       <Section>
         <Reveal>
-          <Eyebrow>Flagship</Eyebrow>
+          <Eyebrow>Flagship Festival</Eyebrow>
         </Reveal>
         <div className="mt-6 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <Reveal delay={0.05}>
@@ -249,7 +247,7 @@ function Home() {
               Uforia <span className="text-gradient">'25</span>
             </h2>
             <p className="mt-6 max-w-xl text-muted-foreground">
-              A massive open-air spectacle hosted at LuLu Mall, Thiruvananthapuram - bringing together headliners, immersive staging, and tens of thousands of voices.
+              A massive open-air spectacle hosted at LuLu Mall, Thiruvananthapuram — bringing together headliners, immersive staging, and tens of thousands of voices.
             </p>
           </Reveal>
           <Reveal delay={0.15} className="flex lg:justify-end">
@@ -287,14 +285,14 @@ function Home() {
           <div className="relative overflow-hidden rounded-3xl border-hairline bg-surface p-10 md:p-16">
             <div className="absolute -top-40 -right-40 h-112 w-md rounded-full bg-aurora opacity-20 blur-[120px]" />
             <h3 className="mt-6 max-w-2xl text-4xl font-bold leading-tight md:text-6xl">
-              Have an idea worth staging? <span className="text-gradient">Let's build it.</span>
+              Ready to experience <span className="text-gradient">Uforia?</span>
             </h3>
             <p className="mt-5 max-w-xl text-muted-foreground">
-              From boutique campus fests to international tours and on-location film sets — Fynora produces the moments that get remembered.
+              Whether you are an attendee, brand partner, or artist looking to join the stage — connect with our festival production team.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <MagneticLink to="/contact" variant="primary" withArrow>Start a conversation</MagneticLink>
-              <MagneticLink to="/about" variant="ghost">About the studio</MagneticLink>
+              <MagneticLink to="/contact" variant="primary" withArrow>Get in touch</MagneticLink>
+              <MagneticLink to="/about" variant="ghost">About the producers</MagneticLink>
             </div>
           </div>
         </Reveal>
