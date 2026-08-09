@@ -3,8 +3,8 @@ import { Instagram, Youtube, Facebook } from "lucide-react";
 import { WhatsAppIcon } from "./social-icons";
 
 const whatsappHref = `https://wa.me/919656735696?text=${encodeURIComponent("Hi Uforia Team, I would like to know more about the festival and upcoming events.")}`;
-const facebookHref = "#";
-const instagramHref = "https://www.instagram.com/fynora_entertainments/";
+const facebookHref = "https://www.facebook.com/people/Fynora/61584576135388/";
+const instagramHref = "https://www.instagram.com/uforia.in/";
 const youtubeHref = "https://www.youtube.com/@FynoraEntertainments";
 const specularisHref = "https://www.instagram.com/specularis.studio/";
 

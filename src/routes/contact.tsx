@@ -8,8 +8,8 @@ import { toast } from "sonner";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
 const whatsappHref = `https://wa.me/919656735696?text=${encodeURIComponent("Hi Uforia Team, I would like to know more about festival tickets and partnerships.")}`;
-const facebookHref = "https://www.facebook.com/FynoraEntertainments";
-const instagramHref = "https://www.instagram.com/fynora_entertainments/";
+const facebookHref = "https://www.facebook.com/people/Fynora/61584576135388/";
+const instagramHref = "https://www.instagram.com/uforia.in/";
 const youtubeHref = "https://www.youtube.com/@FynoraEntertainments";
 const googleFormSubmitUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSenaXGKvzhS9jYgPHXeZoaETI1e7Y1wDavrgHU3Nt0yt6_Bzw/formResponse";
 
