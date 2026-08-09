@@ -14,10 +14,10 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Link to="/" className="flex items-center gap-3">
-            <img src="/full_logo_bgremoved.png" alt="Fynora" className="h-10 w-auto" />
+            <img src="/Logo_cropped.png" alt="Fynora" className="h-20 md:h-24 w-auto object-contain" />
             <span className="sr-only">Fynora</span>
           </Link>
-          <p className="mt-3 max-w-sm text-sm text-muted-foreground">
+          <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             A ground-breaking cultural experience showcasing global talent and India's independent music giants. Festival designed by Fynora Entertainments.
           </p>
           <div className="mt-6 flex gap-3">
@@ -39,8 +39,7 @@ export function SiteFooter() {
         <div>
           <h4 className="text-xs uppercase tracking-widest text-muted-foreground">Festival HQ</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>Charummoodu, Nandhana Garden, Ayiroopara, Thiruvananthapuram, Kerala 695584</li>
-            <li>Kerala · India</li>
+            <li>Thiruvananthapuram, Kerala · India</li>
             <li><a href="mailto:fynoraevent@gmail.com" className="hover:text-foreground">fynoraevent@gmail.com</a></li>
           </ul>
         </div>
