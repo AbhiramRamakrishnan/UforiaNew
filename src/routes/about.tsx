@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero, Section, Reveal, StaggerGroup, StaggerItem, Eyebrow, ParallaxLayer } from "@/components/primitives";
+import { PageHero, Section, Reveal, StaggerGroup, StaggerItem, Eyebrow } from "@/components/primitives";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Uforia | Festival Vision, Leadership & Culture" },
+      { title: "About Uforia | Festival Vision & Culture" },
       { name: "description", content: "Discover the vision, sound, and production philosophy behind Uforia Festival — curated and produced by Fynora Entertainments." },
-      { property: "og:title", content: "About Uforia | Festival Vision, Leadership & Culture" },
+      { property: "og:title", content: "About Uforia | Festival Vision & Culture" },
       { property: "og:description", content: BRAND_DESCRIPTION },
       { property: "og:url", content: siteUrl("/about") },
       { property: "og:image", content: siteUrl("/full_logo_bgresolved.png") },
-      { name: "twitter:title", content: "About Uforia | Festival Vision, Leadership & Culture" },
+      { name: "twitter:title", content: "About Uforia | Festival Vision & Culture" },
       { name: "twitter:description", content: BRAND_DESCRIPTION },
       { name: "twitter:image", content: siteUrl("/full_logo_bgresolved.png") },
     ],
@@ -19,21 +19,6 @@ export const Route = createFileRoute("/about")({
   }),
   component: AboutPage,
 });
-
-const directors = [
-  { 
-    name: "Mithun M.S Kurup", 
-    title: "Festival Director", 
-    bio: "Graphic Designer · Art Director · Show Director · Content Creator · Script Writer.", 
-    img: "/images/directors/mithun.jpg" 
-  },
-  { 
-    name: "Sudhina Mithun", 
-    title: "Creative Director", 
-    bio: "Art Director · Creative Strategist · Content Creator.", 
-    img: "/images/directors/sudhina.jpg" 
-  },
-];
 
 function AboutPage() {
   return (
@@ -44,7 +29,7 @@ function AboutPage() {
         subtitle="Uforia was created to unite international sounds, indie music legends, and immersive visual production into a single high-energy festival ecosystem."
       />
 
-      {/* Philosophy */}
+      {/* Story / Philosophy */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>
@@ -83,40 +68,21 @@ function AboutPage() {
         </StaggerGroup>
       </Section>
 
-      {/* Leadership */}
-      <Section>
+      {/* Production & Curation Banner */}
+      <Section className="pt-0!">
         <Reveal>
-          <Eyebrow>Leadership</Eyebrow>
-          <h2 className="mt-4 text-5xl font-bold md:text-6xl">The minds behind Uforia.</h2>
+          <div className="relative overflow-hidden rounded-3xl border-hairline bg-surface-elevated p-10 md:p-16">
+            <div className="max-w-2xl">
+              <Eyebrow>Curated & Produced</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl text-foreground">
+                Engineered by Fynora Entertainments
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Spearheaded by show directors, visual artists, and creative strategists dedicated to delivering world-class audio-visual stage setups, festival safety, and unmatched audience energy.
+              </p>
+            </div>
+          </div>
         </Reveal>
-        <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2">
-          {directors.map((d) => (
-            <StaggerItem key={d.name}>
-              <article className="group">
-                <div className="relative overflow-hidden rounded-3xl border-hairline bg-surface-elevated">
-                  <ParallaxLayer distance={30}>
-                    <img 
-                      src={d.img} 
-                      alt={d.name} 
-                      loading="lazy" 
-                      className="aspect-4/5 w-full object-cover transition-all duration-700 group-hover:scale-[1.04] group-hover:saturate-[1.15]" 
-                      onError={(e) => {
-                        // Fallback image styling if image path is not yet provided
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                  </ParallaxLayer>
-                  <div className="absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent" />
-                </div>
-                <div className="mt-6 flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-3xl">{d.name}</h3>
-                  <p className="text-sm uppercase tracking-widest text-muted-foreground">{d.title}</p>
-                </div>
-                <p className="mt-3 max-w-md text-sm text-muted-foreground">{d.bio}</p>
-              </article>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
       </Section>
     </>
   );
