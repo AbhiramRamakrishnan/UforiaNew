@@ -118,7 +118,7 @@ function Home() {
 
           <h1 className="mt-10 inline-flex items-center gap-3 text-[9.5vw] font-bold leading-none tracking-tight md:mt-6 md:gap-4 md:text-[5.8rem] lg:gap-5 lg:text-[7rem]">
             <motion.img
-              src="/logo_icon_bgremoved.png"
+              src="/Logo.png"
               alt="Uforia"
               initial={{ opacity: 0, y: 24, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

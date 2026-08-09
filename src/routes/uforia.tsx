@@ -2,16 +2,27 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { PageHero, Section, Reveal, StaggerGroup, StaggerItem, Eyebrow } from "@/components/primitives";
-import { MagneticAnchor, MagneticLink } from "@/components/magnetic-button";
-import { MapPin, Calendar, Users } from "lucide-react";
+import { MagneticAnchor } from "@/components/magnetic-button";
+import { MapPin, Calendar, Users, Play, Film, Image as ImageIcon } from "lucide-react";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
-const galleryAssets = import.meta.glob("../assets/images/uforia/*.{png,jpg,jpeg}", {
+// 1. Glob Images & Videos from their respective directories
+const imageAssets = import.meta.glob("../assets/images/uforia/*.{png,jpg,jpeg,webp}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
 
-const galleryImages = Object.entries(galleryAssets)
+const videoAssets = import.meta.glob("../assets/videos/uforia/*.{mp4,webm,mov}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+// Parse and sort assets
+const galleryImages = Object.entries(imageAssets)
+  .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
+  .map(([path, src]) => ({ path, src }));
+
+const galleryVideos = Object.entries(videoAssets)
   .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, { numeric: true }))
   .map(([path, src]) => ({ path, src }));
 
@@ -44,6 +55,8 @@ const artists = [
 
 function UforiaPage() {
   const [showAllGallery, setShowAllGallery] = useState(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
+
   const featuredSpans = [
     "md:col-span-2 md:row-span-2 aspect-[4/5]",
     "aspect-square",
@@ -53,6 +66,7 @@ function UforiaPage() {
     "aspect-[4/5]",
     "md:col-span-2 aspect-[16/9]",
   ];
+
   const featuredGallery = galleryImages.slice(0, 7).map((image, index) => ({
     ...image,
     span: featuredSpans[index] ?? "aspect-square",
@@ -120,15 +134,19 @@ function UforiaPage() {
         </StaggerGroup>
       </Section>
 
-      {/* Gallery */}
+      {/* Image Gallery Section */}
       <Section>
         <Reveal>
-          <Eyebrow>Festival Memories</Eyebrow>
+          <div className="flex items-center gap-2">
+            <ImageIcon className="h-4 w-4 text-muted-foreground" />
+            <Eyebrow>Festival Memories</Eyebrow>
+          </div>
           <h2 className="mt-4 text-5xl font-bold md:text-6xl">The experience in <span className="text-gradient">frames.</span></h2>
         </Reveal>
+
         <StaggerGroup className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {featuredGallery.map((g, i) => (
-            <StaggerItem key={i} className={g.span}>
+          {featuredGallery.map((g) => (
+            <StaggerItem key={g.path} className={g.span}>
               <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative h-full w-full overflow-hidden rounded-xl border-hairline">
                 <img src={g.src} alt="Uforia festival crowd and performance frame" loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-110" />
               </motion.div>
@@ -136,16 +154,18 @@ function UforiaPage() {
           ))}
         </StaggerGroup>
 
-        <div className="mt-8 flex justify-center">
-          <button
-            type="button"
-            onClick={() => setShowAllGallery((current) => !current)}
-            className="group inline-flex items-center gap-2 rounded-full border border-border bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-[0_12px_40px_-16px_rgba(255,255,255,0.55)] transition-all duration-300 hover:scale-[1.02] hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            {showAllGallery ? "Show less" : "View full gallery"}
-            <span className="ml-1 inline-block text-base leading-none transition-transform duration-300 group-hover:-translate-y-px">+</span>
-          </button>
-        </div>
+        {remainingGallery.length > 0 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllGallery((current) => !current)}
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-[0_12px_40px_-16px_rgba(255,255,255,0.55)] transition-all duration-300 hover:scale-[1.02] hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {showAllGallery ? "Show less" : "View full photo gallery"}
+              <span className="ml-1 inline-block text-base leading-none transition-transform duration-300 group-hover:-translate-y-px">+</span>
+            </button>
+          </div>
+        )}
 
         {showAllGallery && remainingGallery.length > 0 && (
           <StaggerGroup className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
@@ -159,6 +179,50 @@ function UforiaPage() {
           </StaggerGroup>
         )}
       </Section>
+
+      {/* Video Highlights Section */}
+      {galleryVideos.length > 0 && (
+        <Section>
+          <Reveal>
+            <div className="flex items-center gap-2">
+              <Film className="h-4 w-4 text-muted-foreground" />
+              <Eyebrow>Motion & Energy</Eyebrow>
+            </div>
+            <h2 className="mt-4 text-5xl font-bold md:text-6xl">Festival <span className="text-gradient">Aftermovies</span></h2>
+          </Reveal>
+
+          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-2">
+            {galleryVideos.map((vid, idx) => (
+              <StaggerItem key={vid.path}>
+                <div className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface">
+                  <video
+                    src={vid.src}
+                    controls={activeVideoIndex === idx}
+                    muted={activeVideoIndex !== idx}
+                    playsInline
+                    preload="metadata"
+                    className="aspect-video w-full object-cover"
+                    onPlay={() => setActiveVideoIndex(idx)}
+                  />
+                  {activeVideoIndex !== idx && (
+                    <button
+                      type="button"
+                      onClick={() => setActiveVideoIndex(idx)}
+                      className="absolute inset-0 flex flex-col items-center justify-center bg-background/40 transition-colors group-hover:bg-background/20"
+                      aria-label="Play video"
+                    >
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-background/80 text-foreground backdrop-blur-md transition-transform group-hover:scale-110">
+                        <Play className="ml-1 h-6 w-6 fill-current" />
+                      </div>
+                      <span className="mt-3 text-xs font-medium uppercase tracking-widest text-foreground">Play Clip</span>
+                    </button>
+                  )}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </Section>
+      )}
     </>
   );
 }
