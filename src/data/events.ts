@@ -46,8 +46,8 @@ export const eventsList: EventItem[] = [
     tags: ["Flagship Festival", "Live Concert", "Open-Air Arena"],
   },
   {
-    id: "uforia-arena-edition",
-    title: "Uforia Arena '26",
+    id: "uforia-2",
+    title: "Uforia 2",
     tagline: "The Next Era of Sound and Stage Engineering",
     date: "Late 2026",
     venue: "To Be Announced",
