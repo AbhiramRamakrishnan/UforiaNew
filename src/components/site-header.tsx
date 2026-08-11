@@ -216,7 +216,7 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     className="rounded-xl bg-foreground px-4 py-3 text-center text-xs font-medium uppercase tracking-[0.18em] text-background"
                   >
-                    Book us
+                    Contact
                   </Link>
                   <a
                     href="mailto:fynoraevent@gmail.com"
