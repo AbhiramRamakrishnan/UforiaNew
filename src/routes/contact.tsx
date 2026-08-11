@@ -90,7 +90,7 @@ function ContactPage() {
             <div>
               <Eyebrow>Festival HQ</Eyebrow>
               <div className="mt-5 space-y-1">
-                <p className="flex items-center gap-3 text-lg"><MapPin className="h-4 w-4 text-muted-foreground" /> Charummoodu, Nandhana Garden, Ayiroopara, Thiruvananthapuram, Kerala 695584</p>
+                <p className="flex items-center gap-3 text-lg"><MapPin className="h-4 w-4 text-muted-foreground" />Thiruvananthapuram, Kerala 695584</p>
                 <p className="pl-7 text-sm text-muted-foreground">Kerala · India</p>
               </div>
             </div>
