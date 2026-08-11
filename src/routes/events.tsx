@@ -202,7 +202,7 @@ function EventsPage() {
             From stage architecture and light dynamics to crowd management and line-up curation — we engineer experiences from the ground up.
           </p>
           <div className="mt-8 flex justify-center">
-            <MagneticLink href="https://uforiaofficial.com" target="_blank" rel="noreferrer" variant="primary" withArrow>
+            <MagneticLink to="/contact" variant="primary" withArrow>
               Partner with Fynora
             </MagneticLink>
           </div>
