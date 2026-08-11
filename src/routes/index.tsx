@@ -213,7 +213,7 @@ function Home() {
                 transition={{ delay: 0.7, duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 className="block text-[0.74em] leading-none text-gradient md:text-[0.75em]"
               >
-                Festival '25
+                Festival
               </motion.span>
             </span>
           </h1>
@@ -236,8 +236,8 @@ function Home() {
             <MagneticLink to="/uforia" variant="primary" withArrow>
               Explore Uforia '25
             </MagneticLink>
-            <MagneticLink to="/services" variant="outline">
-              What we do
+            <MagneticLink to="/about" variant="outline">
+              About Uforia
             </MagneticLink>
           </motion.div>
         </motion.div>

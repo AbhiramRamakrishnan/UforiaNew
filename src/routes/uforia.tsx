@@ -100,11 +100,11 @@ function UforiaPage() {
         </StaggerGroup>
 
         <Reveal className="mt-12 flex flex-wrap items-center gap-4">
-          <MagneticAnchor href="https://uforiaofficial.com" target="_blank" rel="noreferrer" variant="primary" withArrow>
-            uforiaofficial.com
-          </MagneticAnchor>
-          <MagneticAnchor href="https://in.bookmyshow.com/events/uforia/ET00468281" target="_blank" rel="noreferrer" variant="outline" withArrow>
+          <MagneticAnchor href="https://in.bookmyshow.com/events/uforia/ET00468281" target="_blank" rel="noreferrer" variant="primary" withArrow>
             Book passes
+          </MagneticAnchor>
+          <MagneticAnchor href="#gallery" variant="outline">
+            View gallery
           </MagneticAnchor>
           <span className="text-sm text-muted-foreground">Official festival portal · lineup, gallery & tickets</span>
         </Reveal>
@@ -140,7 +140,7 @@ function UforiaPage() {
       </Section>
 
       {/* Image Gallery Section */}
-      <Section>
+      <Section id="gallery">
         <Reveal>
           <div className="flex items-center gap-2">
             <ImageIcon className="h-4 w-4 text-muted-foreground" />
