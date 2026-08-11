@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { MagneticLink } from "@/components/magnetic-button";
 import { Reveal, Section, Eyebrow, StaggerGroup, StaggerItem } from "@/components/primitives";
-import { ArrowRight, Sparkles, Film, Mic2, Globe2 } from "lucide-react";
+import { ArrowRight, Sparkles, Mic2, Globe2 } from "lucide-react";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -309,7 +309,7 @@ function Home() {
         <Reveal>
           <Eyebrow>Flagship Festival</Eyebrow>
         </Reveal>
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+        <div className="mt-6">
           <Reveal delay={0.05}>
             <h2 className="text-5xl font-bold leading-[0.95] md:text-7xl">
               Uforia <span className="text-gradient">'25</span>
@@ -318,15 +318,10 @@ function Home() {
               A massive open-air spectacle hosted at LuLu Mall, Thiruvananthapuram — bringing together headliners, immersive staging, and tens of thousands of voices.
             </p>
           </Reveal>
-          <Reveal delay={0.15} className="flex lg:justify-end">
-            <MagneticLink to="/uforia" variant="outline" withArrow>
-              Enter Uforia
-            </MagneticLink>
-          </Reveal>
         </div>
 
         <Reveal delay={0.1} className="mt-12">
-          <div className="group relative overflow-hidden rounded-3xl border-hairline">
+          <Link to="/uforia" className="group relative block overflow-hidden rounded-3xl border-hairline">
             <img
               src="/uforia/img1.jpg"
               alt="Uforia '25 flagship event crowd"
@@ -339,11 +334,11 @@ function Home() {
                 <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">December · LuLu Mall, TVM</p>
                 <p className="mt-3 max-w-md font-display text-2xl md:text-3xl">A renaissance staged at the heart of Kerala.</p>
               </div>
-              <Link to="/uforia" className="inline-flex items-center gap-2 text-sm font-medium hover:text-foreground/80">
-                Recap & lineup <ArrowRight className="h-4 w-4" />
-              </Link>
+              <span className="inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-1">
+                Explore Uforia <ArrowRight className="h-4 w-4" />
+              </span>
             </div>
-          </div>
+          </Link>
         </Reveal>
       </Section>
 
