@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, Reveal, StaggerGroup, StaggerItem, Eyebrow } from "@/components/primitives";
+import { MagneticAnchor } from "@/components/magnetic-button";
 import { BRAND_DESCRIPTION, siteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -72,14 +73,27 @@ function AboutPage() {
       <Section className="pt-0!">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border-hairline bg-surface-elevated p-10 md:p-16">
-            <div className="max-w-2xl">
-              <Eyebrow>Curated & Produced</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl text-foreground">
-                Engineered by Fynora Entertainments
-              </h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                Spearheaded by show directors, visual artists, and creative strategists dedicated to delivering world-class audio-visual stage setups, festival safety, and unmatched audience energy.
-              </p>
+            <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+              <div className="max-w-2xl">
+                <Eyebrow>Curated & Produced</Eyebrow>
+                <h2 className="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl">
+                  Engineered by Fynora Entertainments
+                </h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  Spearheaded by show directors, visual artists, and creative strategists dedicated to delivering world-class audio-visual stage setups, festival safety, and unmatched audience energy.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <MagneticAnchor
+                  href="https://fynoraentertainments.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="primary"
+                  withArrow
+                >
+                  Visit Fynora Entertainments
+                </MagneticAnchor>
+              </div>
             </div>
           </div>
         </Reveal>
