@@ -87,7 +87,7 @@ function UforiaPage() {
           {[
             { icon: MapPin, label: "Venue", value: "LuLu Mall, TVM" },
             { icon: Calendar, label: "Date", value: "20 December 2025" },
-            { icon: Users, label: "Footfall", value: "25,000+" },
+            { icon: Users, label: "Footfall", value: "5,000+" },
           ].map(({ icon: Icon, label, value }) => (
             <StaggerItem key={label} className="flex items-center gap-4 rounded-2xl border-hairline bg-surface p-6">
               <Icon className="h-5 w-5 text-muted-foreground" />
@@ -103,7 +103,7 @@ function UforiaPage() {
           <MagneticAnchor href="https://uforiaofficial.com" target="_blank" rel="noreferrer" variant="primary" withArrow>
             uforiaofficial.com
           </MagneticAnchor>
-          <MagneticAnchor href="https://in.bookmyshow.com/events/uforia/ET00468281?webview=true" target="_blank" rel="noreferrer" variant="outline" withArrow>
+          <MagneticAnchor href="https://in.bookmyshow.com/events/uforia/ET00468281" target="_blank" rel="noreferrer" variant="outline" withArrow>
             Book passes
           </MagneticAnchor>
           <span className="text-sm text-muted-foreground">Official festival portal · lineup, gallery & tickets</span>

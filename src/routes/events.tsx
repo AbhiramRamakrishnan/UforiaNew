@@ -169,15 +169,15 @@ function EventsPage() {
                         )}
 
                         {event.externalTicketUrl && (
-                          <MagneticLink
+                          <a
                             href={event.externalTicketUrl}
                             target="_blank"
-                            rel="noreferrer"
-                            variant="outline"
-                            withArrow
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-surface/80"
                           >
                             Book / Tickets
-                          </MagneticLink>
+                            <ArrowUpRight className="h-4 w-4" />
+                          </a>
                         )}
                       </div>
                     </div>
