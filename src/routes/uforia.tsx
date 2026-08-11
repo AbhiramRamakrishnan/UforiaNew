@@ -120,9 +120,14 @@ function UforiaPage() {
         </div>
         <StaggerGroup className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {artists.map((a, i) => (
-            <StaggerItem key={a.name} className={i === 0 ? "md:col-span-2 md:row-span-2" : ""}>
+            <StaggerItem key={a.name} className={i === 0 ? "col-span-2 md:col-span-2 md:row-span-2" : ""}>
               <div className="group relative overflow-hidden rounded-2xl border-hairline">
-                <img src={a.img} alt={a.name} loading="lazy" className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 0 ? "aspect-square md:aspect-4/5" : "aspect-4/5"}`} />
+                <img
+                  src={a.img}
+                  alt={a.name}
+                  loading="lazy"
+                  className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">{a.role}</p>
