@@ -39,7 +39,7 @@ export const eventsList: EventItem[] = [
     footfall: "5,000+",
     status: "Past Event",
     category: "past",
-    image: "src/assets/images/coverImages/uforia-1.png",
+    image: "src\\assets\\images\\coverImages\\uforia-1.png",
     href: "/uforia",
     externalTicketUrl: "https://in.bookmyshow.com/events/uforia/ET00468281",
     description: "A monumental single-night open-air festival featuring heavyweights like Bloodywood, Avial, Arogya, Jhanu, Crishna, and Iham Kavyam.",
