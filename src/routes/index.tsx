@@ -113,7 +113,7 @@ function Home() {
 
         <motion.div style={{ opacity }} className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 py-14 md:justify-end md:py-0 md:pb-28">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-            <Eyebrow>Produced by Fynora Entertainments · Kerala</Eyebrow>
+            <Eyebrow>by Fynora Entertainments</Eyebrow>
           </motion.div>
 
           <h1 className="mt-10 inline-flex items-center gap-3 text-[9.5vw] font-bold leading-none tracking-tight md:mt-6 md:gap-4 md:text-[5.8rem] lg:gap-5 lg:text-[7rem]">
@@ -123,7 +123,7 @@ function Home() {
               initial={{ opacity: 0, y: 24, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.22, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="h-[2em] w-auto shrink-0 object-contain md:h-[2.1em] lg:h-[2.15em]"
+              className="h-[6em] w-auto shrink-0 object-contain md:h-[2.1em] lg:h-[2.15em]"
             />
             <span className="flex flex-col items-start gap-2 md:gap-2.5">
               <span className="leading-[0.9]">
