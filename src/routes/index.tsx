@@ -28,6 +28,100 @@ export const Route = createFileRoute("/")({
 const marquee = ["Uforia '25", "Concert Productions", "Live Performances", "Stage Spectacles", "Festival Experiences", "Music & Culture", "Kerala's Premier Fest"];
 const heroVideoSrc = "/hero_bg_video.mp4";
 
+// Fixed positions/timings so SSR + client output match (avoid Math.random at render time)
+const PARTICLES_LEFT = [
+  { x: 20, y: 18, duration: 7, delay: 0 },
+  { x: 55, y: 62, duration: 9, delay: 1.2 },
+  { x: 32, y: 80, duration: 8, delay: 2.4 },
+  { x: 70, y: 30, duration: 10, delay: 0.6 },
+  { x: 45, y: 45, duration: 7.5, delay: 3 },
+];
+
+const PARTICLES_RIGHT = [
+  { x: 30, y: 22, duration: 8, delay: 0.4 },
+  { x: 60, y: 55, duration: 7, delay: 1.8 },
+  { x: 40, y: 75, duration: 9.5, delay: 0.2 },
+  { x: 75, y: 40, duration: 8.5, delay: 2.6 },
+  { x: 50, y: 15, duration: 7.2, delay: 1.4 },
+];
+
+function SideAmbient({ flip = false }: { flip?: boolean }) {
+  const particles = flip ? PARTICLES_RIGHT : PARTICLES_LEFT;
+
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-background">
+      {/* base tonal wash */}
+      <div className="absolute inset-0 bg-linear-to-b from-surface/40 via-background to-surface/30" />
+
+      {/* visible vertical rule grid */}
+      <div className="absolute inset-0 flex justify-evenly opacity-[0.14]">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="h-full w-px bg-foreground" />
+        ))}
+      </div>
+
+      {/* large saturated drifting glows, brand pink -> blue, big movement range */}
+      <motion.div
+        className="absolute h-[28rem] w-[28rem] rounded-full blur-[90px]"
+        style={{
+          left: flip ? "auto" : "-30%",
+          right: flip ? "-30%" : "auto",
+          top: "5%",
+          background: "radial-gradient(circle, #ec4899 0%, transparent 70%)",
+        }}
+        animate={{ y: [0, 160, 0], x: flip ? [0, -50, 0] : [0, 50, 0], opacity: [0.45, 0.75, 0.45], scale: [1, 1.15, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute h-96 w-96 rounded-full blur-[90px]"
+        style={{
+          left: flip ? "auto" : "5%",
+          right: flip ? "5%" : "auto",
+          bottom: "0%",
+          background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
+        }}
+        animate={{ y: [0, -140, 0], opacity: [0.4, 0.7, 0.4], scale: [1, 1.12, 1] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+
+      {/* bold rotating rings with an animated arc */}
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-white/30"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/25"
+        animate={{ rotate: -360, scale: [1, 1.08, 1] }}
+        transition={{ rotate: { duration: 22, repeat: Infinity, ease: "linear" }, scale: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_28px_8px_rgba(255,255,255,0.6)]"
+        animate={{ scale: [1, 1.8, 1], opacity: [0.7, 1, 0.7] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* bigger glowing floating particles with more travel distance */}
+      {particles.map((p, i) => (
+        <motion.span
+          key={i}
+          className="absolute h-2 w-2 rounded-full bg-white shadow-[0_0_16px_5px_rgba(255,255,255,0.7)]"
+          style={{ left: `${p.x}%`, top: `${p.y}%` }}
+          animate={{ y: [0, -90, 0], opacity: [0, 1, 0], scale: [0.6, 1.3, 0.6] }}
+          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: "easeInOut" }}
+        />
+      ))}
+
+      {/* edge fade toward center video */}
+      <div
+        className={`absolute inset-0 bg-linear-to-r ${
+          flip ? "from-transparent via-background/5 to-background/50" : "from-background/50 via-background/5 to-transparent"
+        }`}
+      />
+    </div>
+  );
+}
+
 function HeroBackground() {
   return (
     <div className="absolute inset-0 pointer-events-none">
@@ -45,20 +139,7 @@ function HeroBackground() {
       </div>
 
       <div className="absolute inset-0 hidden md:grid md:grid-cols-3">
-        <div className="relative h-full overflow-hidden">
-          <video
-            className="absolute left-1/2 top-1/2 z-10 h-[82%] w-auto -translate-x-1/2 -translate-y-1/2 scale-x-[-1] object-contain opacity-90 blur-lg saturate-125"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src={heroVideoSrc} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 z-20 bg-background/6" />
-          <div className="absolute inset-0 z-20 bg-linear-to-r from-background/20 via-background/6 to-transparent" />
-        </div>
+        <SideAmbient />
 
         <div className="relative h-full overflow-hidden">
           <video
@@ -73,20 +154,7 @@ function HeroBackground() {
           </video>
         </div>
 
-        <div className="relative h-full overflow-hidden">
-          <video
-            className="absolute left-1/2 top-1/2 z-10 h-[82%] w-auto -translate-x-1/2 -translate-y-1/2 scale-x-[-1] object-contain opacity-90 blur-lg saturate-125"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src={heroVideoSrc} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 z-20 bg-background/6" />
-          <div className="absolute inset-0 z-20 bg-linear-to-l from-background/20 via-background/6 to-transparent" />
-        </div>
+        <SideAmbient flip />
       </div>
 
       <div className="absolute inset-0 bg-background/8 md:bg-background/12" />
